@@ -894,8 +894,7 @@ export default class Carousel extends React.Component<Props, State> {
         }
         return (
             <div className={klass.ROOT(this.props.className)} ref={this.setCarouselWrapperRef} tabIndex={0}>
-                <div className={klass.CAROUSEL(true)} style={{ width: this.props.width }}>
-                    {this.renderControls()}
+                <div className={klass.CAROUSEL(true)} style={{ width: this.props.width }}>                    
                     {this.props.renderArrowPrev(this.onClickPrev, hasPrev, this.props.labels.leftArrow)}
                     <div className={klass.WRAPPER(true, this.props.axis)} style={containerStyles}>
                         {isSwipeable ? (
@@ -922,6 +921,7 @@ export default class Carousel extends React.Component<Props, State> {
                         )}
                     </div>
                     {this.props.renderArrowNext(this.onClickNext, hasNext, this.props.labels.rightArrow)}
+                    {this.renderControls()}
                     {this.renderStatus()}
                 </div>
                 {this.renderThumbs()}
