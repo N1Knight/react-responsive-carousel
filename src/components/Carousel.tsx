@@ -333,7 +333,7 @@ export default class Carousel extends React.Component<Props, State> {
     }
 
     autoPlay = () => {
-        if (Children.count(this.props.children) <= 1) {
+        if (!this.props.autoPlay || Children.count(this.props.children) <= 1) {
             return;
         }
 
@@ -894,7 +894,7 @@ export default class Carousel extends React.Component<Props, State> {
         }
         return (
             <div className={klass.ROOT(this.props.className)} ref={this.setCarouselWrapperRef} tabIndex={0}>
-                <div className={klass.CAROUSEL(true)} style={{ width: this.props.width }}>                    
+                <div className={klass.CAROUSEL(true)} style={{ width: this.props.width }}>
                     {this.props.renderArrowPrev(this.onClickPrev, hasPrev, this.props.labels.leftArrow)}
                     <div className={klass.WRAPPER(true, this.props.axis)} style={containerStyles}>
                         {isSwipeable ? (
